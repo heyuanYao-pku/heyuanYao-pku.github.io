@@ -41,3 +41,4 @@ design:
 ---
 
 - TA: [GAMES105](https://games-105.github.io/)
+- Reviewer for SIGGRAPH Asia 2024, TMM, C&G

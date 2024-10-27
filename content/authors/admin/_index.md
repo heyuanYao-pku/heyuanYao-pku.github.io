@@ -1,6 +1,6 @@
 ---
 # Display name
-title: Heyuan Yao
+title: Heyuan Yao(姚贺源)
 
 # Is this the primary user of the site?
 superuser: true
@@ -18,8 +18,8 @@ bio: I'm a Ph.D student from Peking University advised by Libin Liu.
 
 # Interests to show in About widget
 interests:
-- Physics-based Character Animation 
-- Rigidbody simulation
+- 3D Motion Generation
+- Physics-based Character Animation
 
 # Education to show in About widget
 education:
@@ -62,4 +62,6 @@ highlight_name: true
 #{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/demo_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
 ---
 
-Heyuan Yao(姚贺源) is a Ph.D student from [Center on Frontiers of Computing Studies (CFCS)](http://cfcs.pku.edu.cn), Peking University, advised by [Prof. Libin Liu](http://libliu.info/).
+I am currently a fourth-year Ph.D. student at the School of Computer Science, Peking University, under the supervision of Assistant Professor Libin Liu. I obtained my bachelor's degree from Peking University in 2021. My research interests focus on character animation, particularly in relation to generative models. Additionally, I have a strong interest in physical simulation and robotics.
+
+<i class="fas fa-envelope"></i> heyuanyao \\at pku \\dot edu \\dot cn
