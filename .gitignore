@@ -1,9 +1,23 @@
-# IDEs
-.idea/
+.DS_Store
+node_modules
+/dist
 
-# Hugo
-/resources/
-/public
-jsconfig.json
-node_modules/
-hugo.exe
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
