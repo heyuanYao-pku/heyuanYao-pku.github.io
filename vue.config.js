@@ -1,5 +1,5 @@
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production'
-    ? '/academic-portfolio/'  
+    ? '/heyuanYao-pku.github.io/'  
     : '/'
 }
