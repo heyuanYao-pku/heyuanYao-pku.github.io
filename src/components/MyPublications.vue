@@ -36,7 +36,7 @@ export default {
       {
           title: "MoConVQ: Unified Physics-Based Motion Control via Scalable Discrete Representations",
           authorsList: ["Heyuan Yao", "Zhenhua Song", "Yuyang Zhou", "Tenglong Ao", "Baoquan Chen", "Libin Liu"],
-          venue: "August 2024 In SIGGRAPH",
+          venue: "August 2024 In SIGGRAPH (Journal Track)",
           image: require("../assets/moconvq.gif"),
           links: [
             { type: "pdf", url: "https://arxiv.org/abs/2310.1019", icon: "fas fa-file-pdf" },
@@ -47,7 +47,7 @@ export default {
         {
           title: "ControlVAE: Model-Based Learning of Generative Controllers for Physics-Based Characters",
           authorsList: ["Heyuan Yao", "Zhenhua Song", "Baoquan Chen", "Libin Liu"],
-          venue: "December 2022 In SIGGRAPH Asia",
+          venue: "December 2022 In SIGGRAPH Asia (Journal Track), selected to Trailer",
           image: require("../assets/skill.gif"),
           links: [
             { type: "pdf", url: "https://arxiv.org/abs/2210.06063", icon: "fas fa-file-pdf" },
