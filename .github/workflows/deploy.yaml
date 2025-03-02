@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ vue_dev ]  # 或者你的主分支名
+    branches: [ vue_dev ]
 
 jobs:
   build-and-deploy:
@@ -15,16 +15,20 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '16'  # 或者你需要的 Node.js 版本
+        node-version: '16'
 
     - name: Install dependencies
-      run: npm install
+      run: |
+        npm ci  # 使用 ci 而不是 install
+        npm install -g @vue/cli-service  # 全局安装 vue-cli-service
 
     - name: Build
-      run: npm run build
+      run: |
+        chmod +x node_modules/.bin/vue-cli-service  # 添加执行权限
+        npm run build
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@4.1.5
       with:
-        branch: gh-pages  # 部署到的分支
-        folder: dist      # Vue 项目构建输出目录
+        branch: gh-pages
+        folder: dist
