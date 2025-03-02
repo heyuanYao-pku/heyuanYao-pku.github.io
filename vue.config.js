@@ -1,5 +1,3 @@
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production'
-    ? '/heyuanYao-pku.github.io/'  
-    : '/'
+  publicPath: './',  // 修改为相对路径
 }
