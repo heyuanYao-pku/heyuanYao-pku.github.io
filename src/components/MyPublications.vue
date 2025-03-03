@@ -3,7 +3,9 @@
     <h2>Publications</h2>
     <div class="publication-list">
       <div v-for="pub in publications" :key="pub.title" class="publication-item">
-        <img :src="pub.image" :alt="pub.title" class="pub-image">
+        <div class="pub-image-container">
+          <img :src="pub.image" :alt="pub.title" class="pub-image">
+        </div>
         <div class="pub-info">
           <h3>{{ pub.title }}</h3>
           <p class="authors">
@@ -76,8 +78,25 @@ export default {
   background: rgba(255, 255, 255, 0.05);
 }
 
+.pub-image-container {
+  width: 280px; /* Adjust width as needed */
+  position: relative;
+  overflow: hidden;
+}
+
+.pub-image-container::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%; /* 16:9 aspect ratio (9/16 = 0.5625) */
+}
+
 .pub-image {
-  width: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 4px;
 }
 
@@ -113,5 +132,16 @@ h3 {
 
 .pub-link:hover {
   color: #fff;
+}
+
+@media (max-width: 768px) {
+  .publication-item {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .pub-image-container {
+    width: 100%;
+  }
 }
 </style>
