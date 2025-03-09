@@ -24,7 +24,11 @@ export default {
   data() {
     return {
       mediaItems: [
-        
+       {
+          type: 'gif',
+          src: require('@/assets/motion_matching.gif'),
+          caption: "A simple Motion Matching I implemented from scratch."
+        },
         {
           type: 'video',
           src: require('@/assets/obstacle.mp4'),
