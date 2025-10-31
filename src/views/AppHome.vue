@@ -37,7 +37,7 @@ export default {
         {
           type: 'video',
           src: require('@/assets/indoors.mp4'),
-          caption: "Nevigate ControlVAE in the room."
+          caption: "Navigate ControlVAE in the room."
         },
         {
           type: 'gif',

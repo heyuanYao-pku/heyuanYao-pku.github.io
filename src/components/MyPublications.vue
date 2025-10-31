@@ -77,8 +77,7 @@ export default {
           image: require("../assets/scaling.png"),
           links: [
             { type: "pdf", url: "https://arxiv.org/abs/2510.23691", icon: "fas fa-file-pdf" },
-            { type: "github", url: "https://pku-mocca.github.io/Social-Agent-Page/", icon: "fab fa-github" },
-            { type: "video", url: "https://www.youtube.com/watch?v=fYv43x27zjw", icon: "fab fa-youtube" }
+            { type: "github", url: "https://seed-tars.com/game-tars/", icon: "fab fa-github" }
           ]
         },
       {
