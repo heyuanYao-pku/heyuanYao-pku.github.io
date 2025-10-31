@@ -56,6 +56,7 @@ export default {
           image: require("../assets/SRBTrack.jpg"),
           links: [
             { type: "pdf", url: "https://hanyang9.github.io/SRBTrack/static/paper/saconferencepapers25-15.pdf", icon: "fas fa-file-pdf" },
+            { type: "github", url: "https://hanyang9.github.io/SRBTrack/", icon: "fab fa-github" },
             { type: "video", url: "https://www.youtube.com/watch?v=yf_V8TVO71s", icon: "fab fa-youtube" }
           ]
         },
