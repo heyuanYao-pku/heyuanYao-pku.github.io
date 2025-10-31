@@ -5,7 +5,7 @@
       <div class="profile-info">
         <h1>Heyuan Yao 姚贺源</h1>
         <p class="bio">
-          I am currently a fourth-year Ph.D. student in the School of Computer Science at Peking University, under the supervision of Assistant Professor Libin Liu. I received my bachelor's degree from Peking University in 2021.
+          I am currently a final-year Ph.D. student in the School of Computer Science at Peking University, under the supervision of Assistant Professor Libin Liu. I received my bachelor's degree from Peking University in 2021.
         </p> <p class="bio">  
           My research interests focus on developing human-like agents for both simulated and real-world environments. My previous work has centered on physics-based character animation, and currently I am exploring vision-language-action (VLA) models.
         </p>
@@ -28,6 +28,8 @@
 <style scoped>
 .introduction {
   margin-top: 2rem;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  color: #ddd;
 }
 
 .profile {

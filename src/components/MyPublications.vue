@@ -9,11 +9,20 @@
         <div class="pub-info">
           <h3>{{ pub.title }}</h3>
           <p class="authors">
-            <template v-for="(author, index) in pub.authorsList" :key="index">
-              <strong v-if="author === 'Heyuan Yao'">{{ author }}</strong>
-              <template v-else>{{ author }}</template>
+            <!-- 若 customAuthorText 存在，就直接显示 -->
+            <span v-if="pub.customAuthorText">{{ pub.customAuthorText }}</span>
+
+            <!-- 否则循环显示 authorsList -->
+            <template v-else v-for="(author, index) in pub.authorsList" :key="index">
+              <strong v-if="author.isCoFirst">{{ author.name }}*</strong>
+              <template v-else>{{ author.name }}</template>
               {{ index < pub.authorsList.length - 1 ? ', ' : '' }}
             </template>
+          </p>
+
+          <!-- 如果有共同一作者标记 -->
+          <p class="note" v-if="!pub.customAuthorText && pub.authorsList?.some(a => a.isCoFirst)">
+            * denotes co-first authors
           </p>
           <p class="venue">{{ pub.venue }}</p>
           <div class="pub-links">
@@ -35,9 +44,47 @@ export default {
   data() {
     return {
       publications: [
+        {
+          title: "SRBTrack: Terrain-Adaptive Tracking of a Single-Rigid-Body Character Using Momentum-Mapped Space-Time Optimization",
+          authorsList: [
+            { name: "Hanyang Cao", isCoFirst: true },
+            { name: "Heyuan Yao", isCoFirst: true },
+            { name: "Libin Liu", isCoFirst: false },
+            { name: "Taesoo Kwon", isCoFirst: false },
+          ],
+          venue: "December 2025 In SIGGRAPH Asia",
+          image: require("../assets/SRBTrack.jpg"),
+          links: [
+            { type: "pdf", url: "https://hanyang9.github.io/SRBTrack/static/paper/saconferencepapers25-15.pdf", icon: "fas fa-file-pdf" },
+            { type: "video", url: "https://www.youtube.com/watch?v=yf_V8TVO71s", icon: "fab fa-youtube" }
+          ]
+        },
+        {
+          title: "Social Agent: Mastering Dyadic Nonverbal Behavior Generation via Conversational LLM Agents",
+          authorsList: [{name:"Zeyi Zhang"}, {name:"Yanju Zhou"}, {name:"Heyuan Yao"}, {name:"Tenglong Ao"}, {name:"Xiaohang Zhan"}, {name:"Libin Liu"}],
+          venue: "December 2025 In SIGGRAPH Asia",
+          image: require("../assets/socialAgent.jpg"),
+          links: [
+            { type: "pdf", url: "https://arxiv.org/abs/2510.04637", icon: "fas fa-file-pdf" },
+            { type: "github", url: "https://pku-mocca.github.io/Social-Agent-Page/", icon: "fab fa-github" },
+            { type: "video", url: "https://www.youtube.com/watch?v=fYv43x27zjw", icon: "fab fa-youtube" }
+          ]
+        },
+        {
+          title: "Game-TARS: Pretrained Foundation Models for Scalable Generalist Multimodal Game Agents",
+          customAuthorText: "contributor, at Bytedance Seed",
+          venue: "Technical Report",
+          image: require("../assets/scaling.png"),
+          links: [
+            { type: "pdf", url: "https://arxiv.org/abs/2510.23691", icon: "fas fa-file-pdf" },
+            { type: "github", url: "https://pku-mocca.github.io/Social-Agent-Page/", icon: "fab fa-github" },
+            { type: "video", url: "https://www.youtube.com/watch?v=fYv43x27zjw", icon: "fab fa-youtube" }
+          ]
+        },
       {
           title: "MoConVQ: Unified Physics-Based Motion Control via Scalable Discrete Representations",
-          authorsList: ["Heyuan Yao", "Zhenhua Song", "Yuyang Zhou", "Tenglong Ao", "Baoquan Chen", "Libin Liu"],
+          authorsList: [
+          {name:"Heyuan Yao"}, {name:"Zhenhua Song"}, {name:"Yuyang Zhou"}, {name:"Tenglong Ao"}, {name:"Baoquan Chen"}, {name:"Libin Liu"}],
           venue: "August 2024 In SIGGRAPH (Journal Track)",
           image: require("../assets/moconvq.gif"),
           links: [
@@ -48,7 +95,8 @@ export default {
         },
         {
           title: "ControlVAE: Model-Based Learning of Generative Controllers for Physics-Based Characters",
-          authorsList: ["Heyuan Yao", "Zhenhua Song", "Baoquan Chen", "Libin Liu"],
+          authorsList: [
+            {name: "Heyuan Yao"}, {name: "Zhenhua Song"}, {name: "Baoquan Chen"}, {name: "Libin Liu"}],
           venue: "December 2022 In SIGGRAPH Asia (Journal Track), selected to Trailer",
           image: require("../assets/skill.gif"),
           links: [
