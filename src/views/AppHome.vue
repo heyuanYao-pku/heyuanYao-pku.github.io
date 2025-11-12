@@ -24,6 +24,31 @@ export default {
   data() {
     return {
       mediaItems: [
+        {
+          type: 'video',
+          src: require('@/assets/lumine/combat.mp4'),
+          caption: "Lumine Agent: Defeat the enemies ahead and open the chest"
+        },
+        {
+          type: 'video',
+          src: require('@/assets/lumine/npc.mp4'),
+          caption: "Lumine Agent: Talk to NPC Grace"
+        },
+        {
+          type: 'video',
+          src: require('@/assets/lumine/defeat.mp4'),
+          caption: "Lumine Agent: Defeat the Electro Hypostasis"
+        },
+        {
+          type: 'video',
+          src: require('@/assets/lumine/clear.mp4'),
+          caption: "Lumine Agent: Clear the Domain"
+        },
+        {
+          type: 'video',
+          src: require('@/assets/lumine/Wind.mp4'),
+          caption: "Lumine Agent: Collect the Wind Anemograna to activate a Wind Current, then enter the Wind Barrier to open the chest"
+        },
        {
           type: 'gif',
           src: require('@/assets/motion_matching.gif'),

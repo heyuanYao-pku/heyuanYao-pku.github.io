@@ -2,34 +2,62 @@
   <div class="publications">
     <h2>Publications</h2>
     <div class="publication-list">
-      <div v-for="pub in publications" :key="pub.title" class="publication-item">
+      <div 
+        v-for="pub in publications" 
+        :key="pub.title" 
+        class="publication-item"
+      >
         <div class="pub-image-container">
-          <img :src="pub.image" :alt="pub.title" class="pub-image">
+          <!-- YouTube 视频 -->
+          <iframe 
+            v-if="pub.mediaType === 'youtube'" 
+            :src="pub.media" 
+            frameborder="0" 
+            allow="autoplay; encrypted-media" 
+            allowfullscreen
+            class="pub-image">
+          </iframe>
+
+          <!-- 本地 MP4 视频 -->
+          <video 
+            v-else-if="pub.mediaType === 'mp4'" 
+            :src="pub.media" 
+            autoplay muted loop playsinline
+            class="pub-image">
+          </video>
+
+          <!-- 图片 / GIF -->
+          <img 
+            v-else 
+            :src="pub.media" 
+            :alt="pub.title" 
+            class="pub-image">
         </div>
+
         <div class="pub-info">
           <h3>{{ pub.title }}</h3>
           <p class="authors">
-            <!-- 若 customAuthorText 存在，就直接显示 -->
-            <span v-if="pub.customAuthorText">{{ pub.customAuthorText }}</span>
-
-            <!-- 否则循环显示 authorsList -->
+            <span v-if="pub.customAuthorText">
+              <strong>{{ pub.customAuthorText.split(',')[0] }}</strong>{{ pub.customAuthorText.includes(',') ? ',' + pub.customAuthorText.split(',').slice(1).join(',') : '' }}
+            </span>
             <template v-else v-for="(author, index) in pub.authorsList" :key="index">
               <strong v-if="author.isCoFirst">{{ author.name }}*</strong>
               <template v-else>{{ author.name }}</template>
               {{ index < pub.authorsList.length - 1 ? ', ' : '' }}
             </template>
           </p>
-
-          <!-- 如果有共同一作者标记 -->
           <p class="note" v-if="!pub.customAuthorText && pub.authorsList?.some(a => a.isCoFirst)">
             * denotes co-first authors
           </p>
           <p class="venue">{{ pub.venue }}</p>
           <div class="pub-links">
-            <a v-for="link in pub.links" 
-               :key="link.type" 
-               :href="link.url" 
-               class="pub-link">
+            <a 
+              v-for="link in pub.links"
+              :key="link.type"
+              :href="link.url"
+              class="pub-link" 
+              target="_blank" 
+              rel="noopener noreferrer">
               <i :class="link.icon"></i>
             </a>
           </div>
@@ -45,6 +73,18 @@ export default {
     return {
       publications: [
         {
+          title: "Lumine: Building Generalist Agents in 3D Open Worlds",
+          customAuthorText: "Core contributor, at Bytedance Seed",
+          venue: "Technical Report",
+          media: require("../assets/genshin_main_demo_540p.mp4"),
+          mediaType: "mp4",
+          links: [
+            { type: "pdf", url: "https://www.lumine-ai.org/Lumine.pdf", icon: "fas fa-file-pdf" },
+            { type: "github", url: "https://www.lumine-ai.org/", icon: "fab fa-github" },
+            { type: "video", url: "https://www.youtube.com/watch?v=VXiTRGX7uWo&t=1s", icon: "fab fa-youtube" }
+          ]
+        },
+        {
           title: "SRBTrack: Terrain-Adaptive Tracking of a Single-Rigid-Body Character Using Momentum-Mapped Space-Time Optimization",
           authorsList: [
             { name: "Hanyang Cao", isCoFirst: true },
@@ -53,7 +93,8 @@ export default {
             { name: "Taesoo Kwon", isCoFirst: false },
           ],
           venue: "December 2025 In SIGGRAPH Asia",
-          image: require("../assets/SRBTrack.jpg"),
+          media: require("../assets/SRBTrack.jpg"),
+          mediaType: "image",
           links: [
             { type: "pdf", url: "https://hanyang9.github.io/SRBTrack/static/paper/saconferencepapers25-15.pdf", icon: "fas fa-file-pdf" },
             { type: "github", url: "https://hanyang9.github.io/SRBTrack/", icon: "fab fa-github" },
@@ -64,7 +105,8 @@ export default {
           title: "Social Agent: Mastering Dyadic Nonverbal Behavior Generation via Conversational LLM Agents",
           authorsList: [{name:"Zeyi Zhang"}, {name:"Yanju Zhou"}, {name:"Heyuan Yao"}, {name:"Tenglong Ao"}, {name:"Xiaohang Zhan"}, {name:"Libin Liu"}],
           venue: "December 2025 In SIGGRAPH Asia",
-          image: require("../assets/socialAgent.jpg"),
+          media: require("../assets/socialAgent.jpg"),
+          mediaType: "image",
           links: [
             { type: "pdf", url: "https://arxiv.org/abs/2510.04637", icon: "fas fa-file-pdf" },
             { type: "github", url: "https://pku-mocca.github.io/Social-Agent-Page/", icon: "fab fa-github" },
@@ -75,7 +117,8 @@ export default {
           title: "Game-TARS: Pretrained Foundation Models for Scalable Generalist Multimodal Game Agents",
           customAuthorText: "contributor, at Bytedance Seed",
           venue: "Technical Report",
-          image: require("../assets/scaling.png"),
+          media: require("../assets/scaling.png"),
+          mediaType: "image",
           links: [
             { type: "pdf", url: "https://arxiv.org/abs/2510.23691", icon: "fas fa-file-pdf" },
             { type: "github", url: "https://seed-tars.com/game-tars/", icon: "fab fa-github" }
@@ -86,7 +129,8 @@ export default {
           authorsList: [
           {name:"Heyuan Yao"}, {name:"Zhenhua Song"}, {name:"Yuyang Zhou"}, {name:"Tenglong Ao"}, {name:"Baoquan Chen"}, {name:"Libin Liu"}],
           venue: "August 2024 In SIGGRAPH (Journal Track)",
-          image: require("../assets/moconvq.gif"),
+          media: require("../assets/moconvq.gif"),
+          mediaType: "image",
           links: [
             { type: "pdf", url: "https://arxiv.org/abs/2310.1019", icon: "fas fa-file-pdf" },
             { type: "github", url: "https://github.com/heyuanYao-pku/MoConVQ", icon: "fab fa-github" },
@@ -98,7 +142,8 @@ export default {
           authorsList: [
             {name: "Heyuan Yao"}, {name: "Zhenhua Song"}, {name: "Baoquan Chen"}, {name: "Libin Liu"}],
           venue: "December 2022 In SIGGRAPH Asia (Journal Track), selected to Trailer",
-          image: require("../assets/skill.gif"),
+          media: require("../assets/skill.gif"),
+          mediaType: "image",
           links: [
             { type: "pdf", url: "https://arxiv.org/abs/2210.06063", icon: "fas fa-file-pdf" },
             { type: "github", url: "https://github.com/heyuanYao-pku/Control-VAE", icon: "fab fa-github" },
@@ -192,4 +237,22 @@ h3 {
     width: 100%;
   }
 }
+
+.pub-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* 保证 iframe 不会拉伸 */
+.pub-image iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 </style>
