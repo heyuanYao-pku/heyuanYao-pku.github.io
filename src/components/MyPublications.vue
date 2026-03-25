@@ -132,7 +132,7 @@ export default {
           media: require("../assets/moconvq.gif"),
           mediaType: "image",
           links: [
-            { type: "pdf", url: "https://arxiv.org/abs/2310.1019", icon: "fas fa-file-pdf" },
+            { type: "pdf", url: "https://arxiv.org/abs/2310.10198", icon: "fas fa-file-pdf" },
             { type: "github", url: "https://github.com/heyuanYao-pku/MoConVQ", icon: "fab fa-github" },
             { type: "video", url: "https://www.bilibili.com/video/BV13D421N7zp/", icon: "fab fa-youtube" }
           ]
