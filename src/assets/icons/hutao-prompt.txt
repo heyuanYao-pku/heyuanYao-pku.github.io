@@ -1,0 +1,5 @@
+Generated with the built-in image_gen tool on 2026-10-22.
+Source: hutao.png; browser favicon: public/favicon.ico (16, 32, 48, 64px).
+
+Prompt:
+Use case: stylized-concept. Asset type: website favicon, single square icon. Primary request: a cute chibi Hu Tao (胡桃) from Genshin Impact, head-and-hat portrait only, unmistakable dark brown hair, red eyes with simplified flower-shaped pupils, black flat-topped Chinese hat decorated with a small red plum blossom and a pale talisman. Cheerful mischievous closed-mouth smile. Style: polished flat anime sticker illustration, bold clean outlines, very simple large shapes with high contrast readable at 16x16 and 32x32 pixels. Composition: straight-on centered face fills most of the square, entire hat visible, compact silhouette with a little transparent padding, no body, no props, no ghost, no text, no watermark. Background must be truly transparent.

@@ -5,19 +5,17 @@
         <div class="media-gallery">
           <div v-for="(item, index) in items" :key="index" class="media-item">
             <!-- Video content -->
-            <video v-if="item.type === 'video'" 
+            <LazyVideo v-if="item.type === 'video'"
                  :src="item.src" 
-                 autoplay
-                 muted
-                 loop
-                 playsinline
-                 class="media-content">
-              Your browser does not support the video tag.
-            </video>
-            <!-- GIF content -->
+                 :poster="item.poster"
+                 :alt="item.caption"
+                 class="media-content" />
+            <!-- Static image content -->
             <img v-else 
                  :src="item.src" 
                  :alt="item.caption" 
+                 loading="lazy"
+                 decoding="async"
                  class="media-content">
             <p class="media-caption">{{ item.caption }}</p>
           </div>
@@ -27,8 +25,11 @@
   </template>
   
   <script>
+  import LazyVideo from './LazyVideo.vue'
+
   export default {
     name: 'MediaGallery',
+    components: { LazyVideo },
     props: {
       title: {
         type: String,
@@ -121,5 +122,3 @@
     }
   }
   </style>
-  
-  

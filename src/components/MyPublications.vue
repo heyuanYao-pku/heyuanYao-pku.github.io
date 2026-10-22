@@ -12,6 +12,8 @@
           <iframe 
             v-if="pub.mediaType === 'youtube'" 
             :src="pub.media" 
+            :title="pub.title"
+            loading="lazy"
             frameborder="0" 
             allow="autoplay; encrypted-media" 
             allowfullscreen
@@ -19,18 +21,20 @@
           </iframe>
 
           <!-- 本地 MP4 视频 -->
-          <video 
+          <LazyVideo
             v-else-if="pub.mediaType === 'mp4'" 
             :src="pub.media" 
-            autoplay muted loop playsinline
-            class="pub-image">
-          </video>
+            :poster="pub.poster"
+            :alt="pub.title"
+            class="pub-image" />
 
           <!-- 图片 / GIF -->
           <img 
             v-else 
             :src="pub.media" 
             :alt="pub.title" 
+            loading="lazy"
+            decoding="async"
             class="pub-image">
         </div>
 
@@ -68,7 +72,10 @@
 </template>
 
 <script>
+import LazyVideo from './LazyVideo.vue'
+
 export default {
+  components: { LazyVideo },
   data() {
     return {
       publications: [
@@ -77,6 +84,7 @@ export default {
           customAuthorText: "Core contributor, at Bytedance Seed",
           venue: "Technical Report",
           media: require("../assets/genshin_main_demo_540p.mp4"),
+          poster: require("../assets/optimized/genshin-demo.jpg"),
           mediaType: "mp4",
           links: [
             { type: "pdf", url: "https://www.lumine-ai.org/Lumine.pdf", icon: "fas fa-file-pdf" },
@@ -129,8 +137,9 @@ export default {
           authorsList: [
           {name:"Heyuan Yao"}, {name:"Zhenhua Song"}, {name:"Yuyang Zhou"}, {name:"Tenglong Ao"}, {name:"Baoquan Chen"}, {name:"Libin Liu"}],
           venue: "August 2024 In SIGGRAPH (Journal Track)",
-          media: require("../assets/moconvq.gif"),
-          mediaType: "image",
+          media: require("../assets/optimized/moconvq.mp4"),
+          poster: require("../assets/optimized/moconvq.jpg"),
+          mediaType: "mp4",
           links: [
             { type: "pdf", url: "https://arxiv.org/abs/2310.10198", icon: "fas fa-file-pdf" },
             { type: "github", url: "https://github.com/heyuanYao-pku/MoConVQ", icon: "fab fa-github" },
@@ -142,8 +151,9 @@ export default {
           authorsList: [
             {name: "Heyuan Yao"}, {name: "Zhenhua Song"}, {name: "Baoquan Chen"}, {name: "Libin Liu"}],
           venue: "December 2022 In SIGGRAPH Asia (Journal Track), selected to Trailer",
-          media: require("../assets/skill.gif"),
-          mediaType: "image",
+          media: require("../assets/optimized/skill.mp4"),
+          poster: require("../assets/optimized/skill.jpg"),
+          mediaType: "mp4",
           links: [
             { type: "pdf", url: "https://arxiv.org/abs/2210.06063", icon: "fas fa-file-pdf" },
             { type: "github", url: "https://github.com/heyuanYao-pku/Control-VAE", icon: "fab fa-github" },

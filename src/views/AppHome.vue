@@ -27,51 +27,61 @@ export default {
         {
           type: 'video',
           src: require('@/assets/lumine/combat.mp4'),
+          poster: require('@/assets/optimized/lumine-combat.jpg'),
           caption: "Lumine Agent: Defeat the enemies ahead and open the chest"
         },
         {
           type: 'video',
           src: require('@/assets/lumine/npc.mp4'),
+          poster: require('@/assets/optimized/lumine-npc.jpg'),
           caption: "Lumine Agent: Talk to NPC Grace"
         },
         {
           type: 'video',
           src: require('@/assets/lumine/defeat.mp4'),
+          poster: require('@/assets/optimized/lumine-defeat.jpg'),
           caption: "Lumine Agent: Defeat the Electro Hypostasis"
         },
         {
           type: 'video',
           src: require('@/assets/lumine/clear.mp4'),
+          poster: require('@/assets/optimized/lumine-clear.jpg'),
           caption: "Lumine Agent: Clear the Domain"
         },
         {
           type: 'video',
           src: require('@/assets/lumine/Wind.mp4'),
+          poster: require('@/assets/optimized/lumine-wind.jpg'),
           caption: "Lumine Agent: Collect the Wind Anemograna to activate a Wind Current, then enter the Wind Barrier to open the chest"
         },
        {
-          type: 'gif',
-          src: require('@/assets/motion_matching.gif'),
+          type: 'video',
+          src: require('@/assets/optimized/motion_matching.mp4'),
+          poster: require('@/assets/optimized/motion_matching.jpg'),
           caption: "A simple Motion Matching I implemented from scratch."
         },
         {
           type: 'video',
           src: require('@/assets/obstacle.mp4'),
+          poster: require('@/assets/optimized/obstacle.jpg'),
           caption: "IsaacGym version of ControlVAE, finetuned on uneven terrian."
         },
         {
           type: 'video',
           src: require('@/assets/indoors.mp4'),
+          poster: require('@/assets/optimized/indoors.jpg'),
           caption: "Navigate ControlVAE in the room."
         },
         {
-          type: 'gif',
-          src: require('@/assets/world_model.gif'),
+          type: 'video',
+          src: require('@/assets/optimized/world_model.mp4'),
+          poster: require('@/assets/optimized/world_model.jpg'),
           caption: "Visualization of World Model"
         },
         {
-          type: 'gif',
-          src: require('@/assets/dance.gif'),
+          type: 'video',
+          src: require('@/assets/optimized/dance.mp4'),
+          poster: require('@/assets/optimized/dance.jpg'),
           caption: "Let's dance in the simulator!"
         },
         
